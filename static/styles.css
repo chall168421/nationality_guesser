@@ -1,0 +1,115 @@
+body
+{
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+    font-family:Ubuntu;
+	font-size:2em;
+}
+
+#game
+{
+    width:600px;
+    margin-left:auto;
+    margin-right:auto;
+    display:none;
+}
+
+h1
+{
+    font-family:'Press Start 2P';
+}
+
+h2
+{
+    font-style:italic;
+}
+
+button
+{
+    padding-left:1em;
+    padding-right:1em;
+
+}
+
+img
+{
+
+}
+
+
+.rating5
+{
+    color:#2dc937;
+}
+.rating4
+{
+    color:#99c140;
+}
+.rating3
+{
+    color:#e7b416;
+}
+.rating2
+{
+    color:#db7b2b;
+}
+.rating1, .rating0
+{
+    color:#cc3232;
+}
+
+.green
+{
+    color:#2dc937;
+    padding-bottom:1em;
+}
+.red
+{
+    color:#cc3232;
+    padding-bottom:1em;
+}
+.small
+{
+    font-size:0.4em;
+}
+
+.score_msg
+{
+    font-size:0.5em;
+    padding-left: 1em;
+    list-style-type:none;
+
+}
+
+#score
+{
+    width:25%;
+    float:left;
+
+    text-align:right;
+}
+#stats
+{
+    float:left;
+    width:75%;
+
+}
+
+.msg, .msg li
+{
+    list-style-type:none;
+    font-family:'Ubuntu';
+    font-size:0.9em;
+    padding-top:0.3em;
+    padding-bottom:0.3em;
+
+}
+
+
+#loading
+{
+    display:none;
+    color:#DDDDDD;
+    font-size:10em;
+}

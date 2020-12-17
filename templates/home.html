@@ -1,0 +1,42 @@
+<html>
+
+<head>
+
+    <title>WE_R_ALL_1_PPL</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Ubuntu&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<h1>WE_R_ALL_1_PPL</h1>
+
+<h2>Guess the nationality...</h2>
+
+
+<form method="post" autocomplete="off" action="/game">
+
+    <p class="score">0/1</p>
+    <div id="img_holder">
+        {% if error %}
+            {{ error }}
+        {% else %}
+            <img src="{{ img_src }}"/>
+        {% endif %}
+    </div>
+
+    <br><br>
+
+
+
+</form>
+
+<a href="/game"><button>BEGIN!</button></a>
+
+
+
+
+</body>
+</html>

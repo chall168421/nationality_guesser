@@ -1,0 +1,136 @@
+<html>
+
+<head>
+
+    <title>WE_R_ALL_1_PPL</title>
+
+
+
+    <link rel="stylesheet" type="text/css" href="../static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Ubuntu&display=swap" rel="stylesheet">
+
+
+     <script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+
+
+
+
+
+    function reveal()
+    {
+       console.log("working");
+       $("#game").fadeIn();
+    }
+
+    function hide()
+    {
+
+        $("#game").fadeOut();
+        $("#loading").fadeIn();
+         $("#loading").fadeOut();
+    }
+
+
+    function show_loading()
+    {
+        $('#img_holder').css({"-webkit-filter":"invert(0%)","-moz-filter":"invert(0%)","-o-filter":"invert(0%)","-ms-filter":"invert(0%)"});
+    }
+
+    </script>
+
+
+</head>
+
+
+<body>
+
+<h1>WE_R_ALL_1_PPL</h1>
+
+<h2>Guess the nationality...</h2>
+
+
+
+<div id="game">
+
+
+
+
+
+    <div id="score"><p class="score {{ rag_rating }}">{{ score }}%</p></div>
+
+    <div id="stats">
+    <ul class="score_msg">
+        <li>{{ guesses }} nationalities guessed</li>
+        <li><b>STAGE</b>: {{ stage }}</li>
+        <li><b>LEVEL</b>: {{ level }}</li>
+    </ul>
+    </div>
+
+    {% if not start %}
+
+    <form method="post" autocomplete="off" action="/game">
+
+
+    <div id="img_holder">
+            {% if error %}
+                {{ error }}
+            {% else %}
+                <img onload="reveal();" src="{{ img_src }}">
+            {% endif %}
+        </div>
+
+        <br><br>
+
+
+
+        {% if options %}
+
+            <label for="guess">Choose answer from list: </label>
+
+            <select name="guess" id="guess">
+            {% for op in options %}
+                <option value="{{ op }}">{{ op }}</option>
+            {% endfor %}
+
+            </select>
+
+        {% else %}
+
+            <label for="guess">Input your answer:</label>
+            <input name="guess" id="guess" type="text" required {% if feedback %}placeholder="{{ guess }}" disabled{% endif %}>
+
+        {% endif %}
+
+
+         {% if not feedback %}<button type="submit">CHECK!</button>{% endif %}
+
+    </form>
+
+    {% else %}
+        <script>reveal();</script>
+        <a href="/game"><button>BEGIN!</button></a>
+
+    {% endif %}
+
+{% if feedback %}<a href="/game"><button onclick="hide();">NEXT!</button></a>{% endif %}
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <ul class="msg">
+            {% for category , message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
+</div>
+
+<div id="loading">Loading...</div>
+
+</body>
+
+
+
+</html>
